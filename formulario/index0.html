@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Formulario</title>
+</head>
+<body>
+  <h1>Formulario2</h1>
+  <form action="/formulario" method="POST">
+    <input type="text" name="dato" placeholder="Ingrese el dato" required>
+    <input type="submit" value="Enviar">
+  </form>
+
+  <!-- Mostrar el dato si está presente en la URL -->
+  <!-- <script>
+    const params = new URLSearchParams(window.location.search);
+    const dato = params.get('dato');
+    if (dato) {
+      document.write(`<p>El dato recibido es: ${dato}</p>`);
+    }
+  </script> -->
+</body>
+</html>

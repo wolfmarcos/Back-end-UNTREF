@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Formulario</title>
+</head>
+<body>
+  <h1>Formulario</h1>
+  
+  <form id="miFormulario">
+    <input type="text" name="dato" placeholder="Ingrese el dato" required>
+    <input type="submit" value="Enviar">
+  </form>
+
+  <script>
+    const formulario = document.getElementById('miFormulario');
+
+    formulario.addEventListener('submit', function(event) {
+      event.preventDefault(); // Evita que el formulario se envíe automáticamente
+      
+      const datos = {dato:formulario.elements.dato.value};
+      
+      fetch('/formulario', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: datos
+      })
+      .then(response => response.text())
+      .then(data => {
+        // Procesa la respuesta del backend
+        console.log(data);
+        // Resto de la lógica para manejar la respuesta
+      })
+      .catch(error => {
+        console.error(error);
+      });
+    });
+  </script>
+</body>
+</html>

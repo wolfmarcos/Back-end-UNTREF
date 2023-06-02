@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Formulario</title>
+</head>
+<button type="submit">Enviar</button>
+</form>
+
+<script>
+  const formulario = document.getElementById('miFormulario');
+
+  formulario.addEventListener('submit', function(event) {
+    event.preventDefault(); // Evita que el formulario se envíe automáticamente
+
+    const nombre = formulario.elements.nombre.value;
+    const email = formulario.elements.email.value;
+
+    // Crea un objeto con los datos a enviar
+    const datos = {
+      nombre: nombre,
+      email: email
+    };
+
+    // Realiza la solicitud POST al servidor
+    fetch('/formulario', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(datos) // Convierte el objeto a JSON
+    })
+      .then(response => response.json())
+      .then(data => {
+        // Procesa la respuesta del backend
+        console.log(data);
+        // Resto de la lógica para manejar la respuesta
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  });
+</script>
+</body>
+</html>

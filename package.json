@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "build": "tu_comando_de_construcción_aquí",
+    "build": "webpack --config webpack.config.js",
     "test": "jest"
   },
   "keywords": [],
